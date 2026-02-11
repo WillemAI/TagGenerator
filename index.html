@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NameForge - Creatieve Naam Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎮 <span class="brand">NameForge</span></h1>
+            <p class="tagline">Genereer creatieve namen voor alles wat je wilt!</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="mode-selector">
+                    <button id="modeInput" class="mode-btn active" data-mode="input">
+                        ✍️ Met Woord
+                    </button>
+                    <button id="modeRandom" class="mode-btn" data-mode="random">
+                        🎲 Random Namen
+                    </button>
+                </div>
+
+                <!-- Input Mode -->
+                <div id="inputMode" class="mode-content active">
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="inputWord" 
+                            placeholder="Typ je naam, woord of concept... bv: 'Willem' of 'tech'"
+                            class="input-field"
+                        >
+                        <button id="generateBtn" class="generate-btn">⚡ Genereer Namen</button>
+                    </div>
+                    <div class="input-tips">
+                        💡 Tip: Hoe specifieker je invoer, hoe betere resultaten!
+                    </div>
+                </div>
+
+                <!-- Random Mode -->
+                <div id="randomMode" class="mode-content">
+                    <div class="random-controls">
+                        <div class="control-group">
+                            <label for="randomCount">Hoeveel namen?</label>
+                            <input type="number" id="randomCount" min="5" max="100" value="20" class="number-input">
+                        </div>
+                        <button id="randomGenerateBtn" class="generate-btn">🎲 Genereer Willekeurige Namen</button>
+                    </div>
+                    <div class="input-tips">
+                        💡 Tip: Laat de app Namen creëren zonder je invoer!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <h3>Selecteer categorieën:</h3>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">Alles</button>
+                    <button class="category-btn" data-category="gaming">🎮 Gaming</button>
+                    <button class="category-btn" data-category="business">💼 Bedrijf</button>
+                    <button class="category-btn" data-category="creative">🎨 Creatief</button>
+                    <button class="category-btn" data-category="tech">💻 Technologie</button>
+                    <button class="category-btn" data-category="fantasy">⚔️ Fantasy</button>
+                    <button class="category-btn" data-category="social">📱 Social Media</button>
+                    <button class="category-btn" data-category="music">🎵 Muziek</button>
+                    <button class="category-btn" data-category="app">📱 App Namen</button>
+                    <button class="category-btn" data-category="funny">😂 Grappig</button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <div id="resultsContainer" class="results-container">
+                    <div class="empty-state">
+                        <p>🎯 Type een woord of kies "Random Namen" en klik op "Genereer" om aan de slag te gaan!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites Section -->
+            <div class="favorites-section">
+                <div class="favorites-header">
+                    <h3>⭐ Mijn Favorieten</h3>
+                    <button id="clearFavBtn" class="clear-btn">Wissen</button>
+                </div>
+                <div id="favoritesContainer" class="favorites-container">
+                    <p class="empty-fav">Je favorieten verschijnen hier</p>
+                </div>
+            </div>
+
+            <!-- Advanced Options -->
+            <div class="advanced-section">
+                <button id="toggleAdvanced" class="toggle-advanced">⚙️ Geavanceerde opties</button>
+                <div id="advancedOptions" class="advanced-options hidden">
+                    <div class="option-group">
+                        <label for="nameLength">Naamlengte:</label>
+                        <select id="nameLength">
+                            <option value="any">Alles</option>
+                            <option value="short">Kort (≤10 letters)</option>
+                            <option value="medium">Gemiddeld (11-20 letters)</option>
+                            <option value="long">Lang (>20 letters)</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label for="style">Naamstijl:</label>
+                        <select id="style">
+                            <option value="any">Alle stijlen</option>
+                            <option value="uppercase">UPPERCASE</option>
+                            <option value="camelcase">CamelCase</option>
+                            <option value="lowercase">lowercase</option>
+                            <option value="spaced">met Spaties</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label for="language">Taal:</label>
+                        <select id="language">
+                            <option value="dutch">Nederlands</option>
+                            <option value="english">Engels</option>
+                            <option value="mixed">Gemengd</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label for="tone">Toon:</label>
+                        <select id="tone">
+                            <option value="any">Alles</option>
+                            <option value="professional">Professioneel</option>
+                            <option value="playful">Speels</option>
+                            <option value="serious">Serieus</option>
+                            <option value="mysterious">Mysterieus</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Statistics -->
+        <div class="stats-section">
+            <p>📊 Totaal gegenereerde namen: <span id="statsCount">0</span></p>
+            <p>⭐ Favorieten: <span id="statsLikes">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
